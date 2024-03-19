@@ -52,5 +52,5 @@ namespace seneca {
         os << std::endl;
     }
     size_t Station::m_widthField = 0;
-    int Station::id_generator = 0;
+    int Station::id_generator = -1;
 }

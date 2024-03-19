@@ -1,3 +1,11 @@
+// Name: David Andres Sanchez Umbarila
+// Seneca Student ID: 140273228
+// Seneca email: dasanchez-umbarila@myseneca.ca
+// Date of completion: 18/03/2024
+//
+// I confirm that I am the only author of this file
+//   and the content was created entirely by me.
+
 #include "Utilities.h"
 #include <algorithm>
 #include <stdexcept>
