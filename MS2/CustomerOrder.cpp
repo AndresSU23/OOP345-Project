@@ -62,8 +62,11 @@ namespace seneca {
         if (this != &other) {
             m_name = std::move(other.m_name);
             m_product = std::move(other.m_product);
+            
+            for (size_t i = 0; i < m_cntItem; ++i)
+                delete m_lstItem[i];
+            delete[] m_lstItem;
             m_cntItem = other.m_cntItem;
-            delete[] m_lstItem; 
             m_lstItem = other.m_lstItem;
 
             other.m_cntItem = 0;
@@ -76,7 +79,7 @@ namespace seneca {
 
     CustomerOrder::~CustomerOrder() {
         for (size_t i = 0; i < m_cntItem; ++i)
-            delete m_lstItem[i];
+            delete m_lstItem[i]; 
         delete[] m_lstItem;
     }
 
