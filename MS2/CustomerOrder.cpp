@@ -49,6 +49,9 @@ namespace seneca {
 
     CustomerOrder::CustomerOrder(CustomerOrder&& other) noexcept {
         *this = std::move(other);
+        for (size_t i = 0; i < other.m_cntItem; ++i)
+            delete other.m_lstItem[i];
+        delete[] other.m_lstItem;
     }
 
     CustomerOrder& CustomerOrder::operator=(CustomerOrder&& other) noexcept {
@@ -95,11 +98,11 @@ namespace seneca {
                     m_lstItem[i]->m_isFilled = true;
                     m_lstItem[i]->m_serialNumber = station.getNextSerialNumber();
                     station.updateQuantity();
-                    os << "Filled " << m_name << ", " << m_product << " [" << m_lstItem[i]->m_itemName << "]" << std::endl;
+                    os << "    Filled " << m_name << ", " << m_product << " [" << m_lstItem[i]->m_itemName << "]" << std::endl;
                     break;
                 }
                 else {
-                    os << "Unable to fill " << m_name << ", " << m_product << " [" << m_lstItem[i]->m_itemName << "]" << std::endl;
+                    os << "    Unable to fill " << m_name << ", " << m_product << " [" << m_lstItem[i]->m_itemName << "]" << std::endl;
                 }
             }
         }
