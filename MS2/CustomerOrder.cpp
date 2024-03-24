@@ -50,11 +50,9 @@ namespace seneca {
         throw std::runtime_error("Ilegal Operatiorn: Copy Constructor");
     }
 
-    CustomerOrder::CustomerOrder(CustomerOrder&& other) noexcept {
-        m_name = std::move(other.m_name);
-        m_product = std::move(other.m_product);
-        m_cntItem = other.m_cntItem;
-        m_lstItem = other.m_lstItem;
+    CustomerOrder::CustomerOrder(CustomerOrder&& other) noexcept
+        : m_name(std::move(other.m_name)), m_product(std::move(other.m_product)),
+        m_cntItem(other.m_cntItem), m_lstItem(other.m_lstItem) {
 
         other.m_cntItem = 0;
         other.m_lstItem = nullptr;
@@ -65,6 +63,7 @@ namespace seneca {
             m_name = std::move(other.m_name);
             m_product = std::move(other.m_product);
             m_cntItem = other.m_cntItem;
+            delete[] m_lstItem; 
             m_lstItem = other.m_lstItem;
 
             other.m_cntItem = 0;
@@ -72,6 +71,7 @@ namespace seneca {
         }
         return *this;
     }
+
 
 
     CustomerOrder::~CustomerOrder() {
