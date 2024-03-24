@@ -51,30 +51,28 @@ namespace seneca {
     }
 
     CustomerOrder::CustomerOrder(CustomerOrder&& other) noexcept {
-        *this = std::move(other);
-        for (size_t i = 0; i < other.m_cntItem; ++i)
-            delete other.m_lstItem[i];
-        delete[] other.m_lstItem;
+        m_name = std::move(other.m_name);
+        m_product = std::move(other.m_product);
+        m_cntItem = other.m_cntItem;
+        m_lstItem = other.m_lstItem;
+
+        other.m_cntItem = 0;
+        other.m_lstItem = nullptr;
     }
 
     CustomerOrder& CustomerOrder::operator=(CustomerOrder&& other) noexcept {
         if (this != &other) {
-            m_name = other.m_name;
-            m_product = other.m_product;
+            m_name = std::move(other.m_name);
+            m_product = std::move(other.m_product);
             m_cntItem = other.m_cntItem;
             m_lstItem = other.m_lstItem;
 
-            for (size_t i = 0; i < other.m_cntItem; ++i)
-                delete other.m_lstItem[i];
-            delete[] other.m_lstItem;
-
-            other.m_name = "";
-            other.m_product = "";
             other.m_cntItem = 0;
             other.m_lstItem = nullptr;
         }
         return *this;
     }
+
 
     CustomerOrder::~CustomerOrder() {
         for (size_t i = 0; i < m_cntItem; ++i)
