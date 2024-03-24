@@ -34,9 +34,12 @@ namespace seneca {
         if (m_widthField < util.getFieldWidth())
             m_widthField = util.getFieldWidth();
 
-        m_lstItem = new Item * [m_cntItem];
+
         next_pos = identifierPos;
         more = true;
+
+        m_lstItem = new Item * [m_cntItem];
+        
         for (size_t i = 0; i < m_cntItem; ++i) {
             std::string itemName = util.extractToken(record, next_pos, more);
             m_lstItem[i] = new Item(itemName);
@@ -44,6 +47,9 @@ namespace seneca {
     }
 
     CustomerOrder::CustomerOrder(const CustomerOrder& other) {
+        for (size_t i = 0; i < other.m_cntItem; ++i)
+            delete other.m_lstItem[i];
+        delete[] other.m_lstItem;
         throw std::runtime_error("Ilegal Operatiorn: Copy Constructor");
     }
 
