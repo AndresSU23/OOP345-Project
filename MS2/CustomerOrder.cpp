@@ -64,6 +64,10 @@ namespace seneca {
             m_cntItem = other.m_cntItem;
             m_lstItem = other.m_lstItem;
 
+            for (size_t i = 0; i < other.m_cntItem; ++i)
+                delete other.m_lstItem[i];
+            delete[] other.m_lstItem;
+
             other.m_name = "";
             other.m_product = "";
             other.m_cntItem = 0;
