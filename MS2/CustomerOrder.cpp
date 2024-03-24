@@ -47,9 +47,6 @@ namespace seneca {
     }
 
     CustomerOrder::CustomerOrder(const CustomerOrder& other) {
-        for (size_t i = 0; i < other.m_cntItem; ++i)
-            delete other.m_lstItem[i];
-        delete[] other.m_lstItem;
         throw std::runtime_error("Ilegal Operatiorn: Copy Constructor");
     }
 
