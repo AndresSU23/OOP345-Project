@@ -1,0 +1,27 @@
+// Name: David Andres Sanchez Umbarila
+// Seneca Student ID: 140273228
+// Seneca email: dasanchez-umbarila@myseneca.ca
+// Date of completion: 31/03/2024
+//
+// I confirm that I am the only author of this file
+//   and the content was created entirely by me.
+
+Throughout the project, we acquired practical insights into harnessing
+ the capabilities of C++ to construct a robust line management system. 
+Central to our development process was the adept utilization of various 
+standard libraries such as `<fstream>` and `<vector>`, which facilitated
+ seamless file operations and efficient data storage, respectively. 
+By meticulously organizing our code into classes and namespaces, 
+we ensured a structured and comprehensible codebase, fostering maintainability 
+and scalability. Moreover, our utilization of modern C++ features, 
+including lambdas and range-based for loops, not only enhanced code 
+readability but also promoted concise and expressive programming 
+practices. These features allowed us to tackle complex tasks with 
+ease, simplifying our implementation while maintaining robustness.
+ Furthermore, our exploration of error handling mechanisms, such 
+as exceptions and clear error messaging, equipped us with the 
+tools necessary to handle unforeseen runtime issues gracefully, 
+enhancing the overall reliability of our system. In essence, the 
+project provided us with practical skills and methodologies for 
+crafting well-structured, efficient, and reliable C++ solutions 
+tailored for real-world applications.
